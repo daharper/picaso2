@@ -5,7 +5,6 @@ import com.beyondvelocity.utils.Input;
 import com.beyondvelocity.utils.Strings;
 import com.beyondvelocity.utils.UserCommand;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -8,7 +8,7 @@ Please open and run the project in IntelliJ.
 Upon execution, you should be greeted with the help menu and a command prompt.
 
 Enter D to see the demo as per the requirements document.
-Enter A to see another demo demonstrating a litte more functionality.
+Enter A to see another demo demonstrating a little more functionality.
 
 Enter ? at anytime to see a list of available commands.
 
