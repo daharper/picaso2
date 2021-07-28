@@ -50,12 +50,6 @@ public class Line {
 
     // draws a diagonal line.
     private static void drawDiagonalLine(Canvas canvas, int x1, int y1, int x2, int y2, char pen) {
-        // we want to draw from (x1,y1)..(x2, y2), swap if given (x2, y2)..(x1, y1)
-//        if (y1 > y2) {
-//            y1 = y1 ^ y2 ^ (y2 = y1);
-//            x1 = x1 ^ x2 ^ (x2 = x1);
-//        }
-
         var yPixels = Math.abs(y2 - y1) + 1;
         var xPixels = Math.abs(x2 - x1) + 1;
         var xOffset = x2 > x1 ? 1 : -1;
