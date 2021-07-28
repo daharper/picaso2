@@ -22,7 +22,7 @@ public class AuthorCommand extends Command {
         Line.draw(canvas, 1, 5, 16, 5, '.');
         Line.draw(canvas, 16, 1, 16, 5, ':');
         Fill.draw(canvas, 13, 1, '.');
-        Triangle.draw(canvas, 32, 1, 27, 4, 37, 4, Canvas.PEN);
+        Triangle.draw(canvas, 33, 1, 28, 4, 36, 4, '*');
         Plot.draw(canvas, 29, 5, '|');
         Plot.draw(canvas, 29, 6, '|');
         Plot.draw(canvas, 35, 5, '|');
@@ -30,7 +30,7 @@ public class AuthorCommand extends Command {
         Plot.draw(canvas, 31, 5, 'O');
         Plot.draw(canvas, 33, 5, 'O');
         Plot.draw(canvas, 32, 6, '-');
-        Fill.draw(canvas, 32, 2, 'x');
+        Fill.draw(canvas, 32, 3, '*');
         Line.draw(canvas, 26, 7, 38, 7, Canvas.PEN);
         Line.draw(canvas, 31, 7, 28, 9, Canvas.PEN);
         Line.draw(canvas, 33, 7, 36, 9, Canvas.PEN);

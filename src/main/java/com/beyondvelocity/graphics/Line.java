@@ -2,6 +2,8 @@ package com.beyondvelocity.graphics;
 
 import com.beyondvelocity.core.Canvas;
 
+import static java.lang.System.out;
+
 /*
  * Line graphics primitive.
  */
@@ -49,25 +51,29 @@ public class Line {
     // draws a diagonal line.
     private static void drawDiagonalLine(Canvas canvas, int x1, int y1, int x2, int y2, char pen) {
         // we want to draw from (x1,y1)..(x2, y2), swap if given (x2, y2)..(x1, y1)
-        if (y1 > y2) {
-            y1 = y1 ^ y2 ^ (y2 = y1);
-            x1 = x1 ^ x2 ^ (x2 = x1);
-        }
+//        if (y1 > y2) {
+//            y1 = y1 ^ y2 ^ (y2 = y1);
+//            x1 = x1 ^ x2 ^ (x2 = x1);
+//        }
 
-        var yPixels = y2 - y1 + 1;
+        var yPixels = Math.abs(y2 - y1) + 1;
         var xPixels = Math.abs(x2 - x1) + 1;
         var xOffset = x2 > x1 ? 1 : -1;
+        var yOffset = y2 > y1 ? 1 : -1;
+
         var x = x1;
         var y = y1;
 
         // if the line is more vertical, we'll draw by enumerating all the y points.
-        if (yPixels > xPixels) {
-            var step = yPixels / xPixels;
+        if (yPixels >= xPixels) {
+            var xStep = Math.round((float)yPixels / xPixels);
 
             for(var i = 1; i <= yPixels; ++i) {
-                canvas.setPixel(x, y++, pen);
+                canvas.setPixel(x, y, pen);
 
-                if (i % step == 0) {
+                y += yOffset;
+
+                if (i % xStep == 0) {
                     if ((xOffset == -1 && x > x2) || (xOffset == 1 && x < x2)) {
                         x += xOffset;
                     }
@@ -77,15 +83,17 @@ public class Line {
         }
 
         // line is more horizontal, we'll draw by enumerating all the x points.
-        var step = xPixels / yPixels;
+        var yStep = Math.round((float)xPixels / yPixels);
 
         for (var i = 1; i <= xPixels; ++i) {
             canvas.setPixel(x, y, pen);
 
             x += xOffset;
 
-            if (i % step == 0 && y < y2) {
-                ++y;
+            if (i % yStep == 0) {
+                if ((yOffset == -1 && y > y2) || (yOffset == 1 && y < y2)) {
+                    y += yOffset;
+                }
             }
         }
     }
