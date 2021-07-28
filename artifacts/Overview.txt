@@ -16,7 +16,6 @@ Architecture
 ============
 
 The application architecture is flexible, it uses Spring Context.
-Please see the accompanying diagrams for a high level view. 
 
 Components
 ----------
@@ -28,6 +27,7 @@ Components are the building blocks of the application.
 * CommandManager: 	identifies commands and executes them
 * Renderer: 		outputs to the console
 * Canvas:  			the drawing surface
+* ContextProvider   makes the context available to other classes
 
 Graphics
 --------
@@ -44,21 +44,10 @@ Commands
 --------
 Commands use the primitives to perform user actions (Input).
 
-Each command is annotated with UserCommand. Reflection is used 
-by the CommandManager to identify the system commands. This 
-decoupling makes it easy to add new commands.
+Each command is registered as a bean, its name matching the user command.
 
 * Command           base of all commands, abstract class
 * ...               a number of commands implementing specific behavior
-
-Utils
------
-These are the helper classes.
-
-* Rtti              provides basic package reflection functionality
-* UserCommand	    an annotation to declare user commands
-* ContextProvider   makes the context available to other classes
-* ...               a few simple utility classes
 
 Tests
 -----

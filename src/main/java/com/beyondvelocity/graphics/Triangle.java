@@ -14,6 +14,6 @@ public class Triangle {
 
         Line.draw(canvas, x1, y1, x2, y2, pen);
         Line.draw(canvas, x2, y2, x3, y3, pen);
-        Line.draw(canvas, x3, y3, x1, y1, pen);
+        Line.draw(canvas, x1, y1, x3, y3, pen);
     }
 }
