@@ -17,7 +17,7 @@ public class InvalidCommand extends Command {
     }
 
     @Override
-    protected void run(Input input, Canvas canvas) {
+    protected void run(Input in, Canvas canvas) {
         renderer().displayError(
             "There was an error with the command." + System.lineSeparator() +
             "For more information please enter ?" + System.lineSeparator() +

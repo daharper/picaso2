@@ -1,14 +1,10 @@
 package com.beyondvelocity.components;
 
 import com.beyondvelocity.commands.*;
+import com.beyondvelocity.utils.ContextProvider;
 import com.beyondvelocity.utils.Input;
-import com.beyondvelocity.utils.Rtti;
-import com.beyondvelocity.utils.UserCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /*
  * Responsible for managing the execution of user commands.
@@ -16,22 +12,12 @@ import java.util.Map;
 @Component
 public class CommandManager {
     private final Renderer renderer;
-    private final Map<String, Class<?>> types = new HashMap<>();
-    private final Map<String, UserCommand> annotations = new HashMap<>();
 
     /*
      * Initializes a new instance of the CommandManager.
      */
-    public CommandManager(@Autowired Rtti rtti, @Autowired Renderer renderer) {
+    public CommandManager(@Autowired Renderer renderer) {
         this.renderer = renderer;
-
-        var commands = rtti.getClassesWith(UserCommand.class);
-
-        for(var command: commands) {
-            var annotation = command.getAnnotation(UserCommand.class);
-            types.put(annotation.text(), command);
-            annotations.put(annotation.text(), annotation);
-        }
     }
 
     /*
@@ -46,31 +32,29 @@ public class CommandManager {
      * Executes the command represented by the specified input.
      */
     public Command execute(Input input) {
-        var cmd = input.cmd();
+        Command cmd;
 
-        if (!types.containsKey(cmd)) {
+        try {
+            cmd = (Command)ContextProvider.getContext().getBean(input.cmd());
+        } catch (Exception e){
             return unknownCommand(input);
         }
 
-        var cls = types.get(cmd);
-        var info = annotations.get(cmd);
-
-        if (input.argCount() < info.args()) {
-            return invalidCommand(input, "argument error, expected: " +  info.example());
+        if (input.argCount() < cmd.minArgs()) {
+            return invalidCommand(input, "argument error, expected: " +  cmd.example());
         }
 
         try {
-            var command = (Command) cls.getConstructor().newInstance();
-            command.execute(input);
+            cmd.execute(input);
 
-            if (info.dirty()) {
+            if (cmd.dirty()) {
                 renderer.drawCanvas();
             }
-
-            return command;
         } catch (Exception e) {
-            return invalidCommand(input, e.getMessage());
+            cmd = invalidCommand(input, e.getMessage());
         }
+
+        return cmd;
     }
 
     /*

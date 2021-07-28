@@ -3,22 +3,24 @@ package com.beyondvelocity.commands;
 import com.beyondvelocity.components.Canvas;
 import com.beyondvelocity.graphics.*;
 import com.beyondvelocity.utils.Input;
-import com.beyondvelocity.utils.UserCommand;
 
 /*
  * Demonstrates the application's functionality.
  */
-@UserCommand(text = "a", example = "A", description = "runs the author's demo")
 public class AuthorCommand extends Command {
 
+    public AuthorCommand() {
+        super("A", "runs the author's demo", true);
+    }
+
     @Override
-    protected void run(Input input, Canvas canvas) {
+    protected void run(Input in, Canvas canvas) {
         canvas.create(40, 13);
         Text.draw(canvas, 1, 1, "David Harper");
-        Text.draw(canvas, 1, 2, "Java Wizard");
+        Text.draw(canvas, 1, 2, "Java Developer");
         Text.draw(canvas, 1, 3, "9106 0579");
-        Line.draw(canvas, 1, 5, 16, 5, '_');
-        Line.draw(canvas, 16, 1, 16, 5, '|');
+        Line.draw(canvas, 1, 5, 16, 5, '.');
+        Line.draw(canvas, 16, 1, 16, 5, ':');
         Fill.draw(canvas, 13, 1, '.');
         Triangle.draw(canvas, 32, 1, 27, 4, 37, 4, Canvas.PEN);
         Plot.draw(canvas, 29, 5, '|');

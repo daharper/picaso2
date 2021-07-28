@@ -12,7 +12,7 @@ public class Strings {
     }
 
     /*
-     * Appends spaces to the specified string until it is of the desired length.
+     * Append spaces to the specified string until it is of the desired length.
      */
     public static String padRight(String text, int length) {
         if (text == null) return repeat(' ', length);

@@ -5,16 +5,18 @@ import com.beyondvelocity.graphics.Fill;
 import com.beyondvelocity.graphics.Line;
 import com.beyondvelocity.graphics.Rectangle;
 import com.beyondvelocity.utils.Input;
-import com.beyondvelocity.utils.UserCommand;
 
 /*
  * Demonstrates the application functionality as per requirements.
  */
-@UserCommand(text = "d", example = "D", description = "runs the requirement's demo")
 public class DemoCommand extends Command{
 
+    public DemoCommand() {
+        super("D", "runs the requirement's demo", true);
+    }
+
     @Override
-    protected void run(Input input, Canvas canvas) {
+    protected void run(Input in, Canvas canvas) {
         canvas.create(20, 4);
         Line.draw(canvas, 1, 2, 6, 2, Canvas.PEN);
         Line.draw(canvas, 6, 3, 6, 4, Canvas.PEN);

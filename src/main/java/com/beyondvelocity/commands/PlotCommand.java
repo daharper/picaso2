@@ -3,19 +3,21 @@ package com.beyondvelocity.commands;
 import com.beyondvelocity.components.Canvas;
 import com.beyondvelocity.graphics.Plot;
 import com.beyondvelocity.utils.Input;
-import com.beyondvelocity.utils.UserCommand;
 
 /*
  * Plots a pixel on the canvas.
  */
-@UserCommand(text = "p", example = "P x y c", description = "plots the color 'c' at (X,Y)", args = 3)
 public class PlotCommand extends Command {
 
+    public PlotCommand() {
+        super("P x y c", "plots the color 'c' at (x,y)", 3, true);
+    }
+
     @Override
-    protected void run(Input input, Canvas canvas) {
-        var x = input.intArg(0);
-        var y = input.intArg(1);
-        var c = input.charArg(2);
+    protected void run(Input in, Canvas canvas) {
+        var x = in.x1();
+        var y = in.y1();
+        var c = in.pen(2);
 
         Plot.draw(canvas, x, y, c);
     }

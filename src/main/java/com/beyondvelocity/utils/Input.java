@@ -56,9 +56,51 @@ public class Input {
     }
 
     /*
-     * Gets the argument at the specified index as a character.
+     * Gets the x1 value - conventional utility function, returns argument 0.
      */
-    public char charArg(int index) {
+    public int x1() {
+        return intArg(0);
+    }
+
+    /*
+     * Gets the y1 value - conventional utility function, returns argument 1.
+     */
+    public int y1() {
+        return intArg(1);
+    }
+
+    /*
+     * Gets the x2 value - conventional utility function, returns argument 2.
+     */
+    public int x2() {
+        return intArg(2);
+    }
+
+    /*
+     * Gets the y2 value - conventional utility function, returns argument 3.
+     */
+    public int y2() {
+        return intArg(3);
+    }
+
+    /*
+     * Gets the x3 value - conventional utility function, return argument 4.
+     */
+    public int x3() {
+        return intArg(4);
+    }
+
+    /*
+     * Gets the y3 value - conventional utility function, return argument 5.
+     */
+    public int y3() {
+        return intArg(5);
+    }
+
+    /*
+     * Gets the pen argument at the specified index.
+     */
+    public char pen(int index) {
         var arg = arg(index);
         return arg.charAt(0);
     }

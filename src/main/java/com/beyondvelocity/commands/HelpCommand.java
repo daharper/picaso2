@@ -3,35 +3,39 @@ package com.beyondvelocity.commands;
 import com.beyondvelocity.components.Canvas;
 import com.beyondvelocity.utils.Input;
 import com.beyondvelocity.utils.Strings;
-import com.beyondvelocity.utils.UserCommand;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /*
  * Provides help functionality.
  */
-@UserCommand(text = "?", example = "?", description = "displays a list of commands", dirty = false)
 public class HelpCommand extends Command {
-    private static List<String> help;
+    private List<String> help;
 
-    /*
-     * Initializes a new instance of the help command, discovers help information.
-     */
     public HelpCommand() {
-        if (help != null) return;
-
-        help = rtti().getClassesWith(UserCommand.class)
-              .stream()
-              .map(c -> {
-                  var a = c.getAnnotation(UserCommand.class);
-                  return Strings.padRight(a.example(), 25) + a.description(); })
-              .sorted()
-              .collect(Collectors.toList());
+        super("?", "displays a list of commands", false);
     }
 
+    private void generateHelp() {
+        var ctx = context();
+
+        help = ctx.getBeansOfType(Command.class)
+                .values()
+                .stream()
+                .filter(c -> !Strings.isNullOrBlank(c.example()))
+                .map(c -> Strings.padRight(c.example(), 25) + c.description())
+                .collect(Collectors.toList());
+    }
+
+
     @Override
-    protected void run(Input input, Canvas canvas) {
+    protected void run(Input in, Canvas canvas) {
+        if (help == null) {
+            generateHelp();
+        }
+
         var renderer = renderer();
 
         renderer.newLine();
