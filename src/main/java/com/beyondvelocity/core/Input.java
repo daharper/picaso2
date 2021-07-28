@@ -1,4 +1,4 @@
-package com.beyondvelocity.utils;
+package com.beyondvelocity.core;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,8 +128,9 @@ public class Input {
         var args = new ArrayList<String>();
 
         for (var i = 1; i < tokens.length; ++i) {
-            if (!Strings.isNullOrBlank(tokens[i])) {
-                args.add(tokens[i].trim());
+            var token = tokens[i];
+            if (!token.isBlank()){
+                args.add(token.trim());
             }
         }
 

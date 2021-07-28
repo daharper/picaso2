@@ -1,4 +1,4 @@
-package com.beyondvelocity.components;
+package com.beyondvelocity.core;
 
 import com.beyondvelocity.commands.HelpCommand;
 import com.beyondvelocity.commands.QuitCommand;

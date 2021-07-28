@@ -1,7 +1,7 @@
 package com.beyondvelocity.commands;
 
-import com.beyondvelocity.components.Canvas;
-import com.beyondvelocity.utils.Input;
+import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.Input;
 
 /*
  * Represents a failed command.

@@ -1,10 +1,9 @@
-package com.beyondvelocity.components;
+package com.beyondvelocity.core;
 
-import com.beyondvelocity.utils.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 /*
  * Responsible for rendering output to the console.
@@ -52,7 +51,7 @@ public class Renderer {
      * Draw the canvas to the console.
      */
     public void drawCanvas() {
-        var hr = Strings.repeat('-', canvas.getWidth() + 2);
+        var hr = String.valueOf('-').repeat(canvas.getWidth() + 2);
 
         // top border
         out.println(hr);

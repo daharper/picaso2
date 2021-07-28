@@ -1,7 +1,5 @@
-package com.beyondvelocity.components;
+package com.beyondvelocity.core;
 
-import com.beyondvelocity.utils.Input;
-import com.beyondvelocity.utils.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,9 +28,9 @@ public class InputProcessor {
 
         var text = "";
 
-        while (Strings.isNullOrBlank(text)) {
+        while (text.isEmpty()) {
             renderer.displayPrompt();
-            text = in.nextLine();
+            text = in.nextLine().trim();
         }
 
         return Input.create(text.trim());

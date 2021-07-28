@@ -1,7 +1,7 @@
 package com.beyondvelocity;
 
-import com.beyondvelocity.components.Application;
-import com.beyondvelocity.utils.ContextProvider;
+import com.beyondvelocity.core.Application;
+import com.beyondvelocity.core.ContextProvider;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {

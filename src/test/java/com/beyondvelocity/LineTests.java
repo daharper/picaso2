@@ -1,6 +1,6 @@
 package com.beyondvelocity;
 
-import com.beyondvelocity.components.Canvas;
+import com.beyondvelocity.core.Canvas;
 import com.beyondvelocity.graphics.Line;
 import org.junit.jupiter.api.Test;
 

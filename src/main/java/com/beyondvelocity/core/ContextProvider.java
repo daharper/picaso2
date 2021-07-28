@@ -1,4 +1,4 @@
-package com.beyondvelocity.utils;
+package com.beyondvelocity.core;
 
 import org.springframework.context.ApplicationContext;
 

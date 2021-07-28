@@ -1,6 +1,5 @@
-package com.beyondvelocity.components;
+package com.beyondvelocity.core;
 
-import com.beyondvelocity.utils.ValidationException;
 import org.springframework.stereotype.Component;
 
 /*

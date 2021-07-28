@@ -1,10 +1,8 @@
 package com.beyondvelocity.commands;
 
-import com.beyondvelocity.components.Canvas;
-import com.beyondvelocity.utils.Input;
-import com.beyondvelocity.utils.Strings;
+import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.Input;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,8 +22,8 @@ public class HelpCommand extends Command {
         help = ctx.getBeansOfType(Command.class)
                 .values()
                 .stream()
-                .filter(c -> !Strings.isNullOrBlank(c.example()))
-                .map(c -> Strings.padRight(c.example(), 25) + c.description())
+                .filter(c -> c.example().length() > 0)
+                .map(c -> c.example() + String.valueOf(' ').repeat(25 - c.example().length()) + c.description())
                 .collect(Collectors.toList());
     }
 

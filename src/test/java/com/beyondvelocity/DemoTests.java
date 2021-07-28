@@ -1,7 +1,7 @@
 package com.beyondvelocity;
 
-import com.beyondvelocity.components.Canvas;
-import com.beyondvelocity.components.Renderer;
+import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.Renderer;
 import com.beyondvelocity.graphics.Fill;
 import com.beyondvelocity.graphics.Line;
 import com.beyondvelocity.graphics.Rectangle;

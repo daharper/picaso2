@@ -1,8 +1,8 @@
-package com.beyondvelocity.components;
+package com.beyondvelocity.core;
 
-import com.beyondvelocity.commands.*;
-import com.beyondvelocity.utils.ContextProvider;
-import com.beyondvelocity.utils.Input;
+import com.beyondvelocity.commands.Command;
+import com.beyondvelocity.commands.InvalidCommand;
+import com.beyondvelocity.commands.UnknownCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

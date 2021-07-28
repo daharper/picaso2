@@ -1,8 +1,8 @@
 package com.beyondvelocity.commands;
 
-import com.beyondvelocity.components.Canvas;
+import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.Input;
 import com.beyondvelocity.graphics.Text;
-import com.beyondvelocity.utils.Input;
 
 /*
  * Writes text onto the canvas.

@@ -1,9 +1,8 @@
 package com.beyondvelocity;
 
-import com.beyondvelocity.components.Canvas;
+import com.beyondvelocity.core.Canvas;
 import com.beyondvelocity.graphics.Fill;
 import com.beyondvelocity.graphics.Rectangle;
-import com.beyondvelocity.utils.Strings;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +12,7 @@ public class FillTests {
 
     @Test
     void testFillsEntireCanvas() {
-        var expected = Strings.repeat('o', 4 * 4);
+        var expected = String.valueOf('o').repeat(4 * 4);
 
         canvas.create(4, 4);
 

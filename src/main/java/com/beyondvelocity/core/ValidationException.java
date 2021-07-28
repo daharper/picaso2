@@ -1,4 +1,4 @@
-package com.beyondvelocity.utils;
+package com.beyondvelocity.core;
 
 /*
  * Encapsulates validation errors.

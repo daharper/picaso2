@@ -1,9 +1,9 @@
 package com.beyondvelocity.commands;
 
-import com.beyondvelocity.utils.Input;
-import com.beyondvelocity.components.Canvas;
-import com.beyondvelocity.components.Renderer;
-import com.beyondvelocity.utils.ContextProvider;
+import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.ContextProvider;
+import com.beyondvelocity.core.Input;
+import com.beyondvelocity.core.Renderer;
 import org.springframework.context.ApplicationContext;
 
 /*

@@ -1,8 +1,7 @@
 package com.beyondvelocity;
 
-import com.beyondvelocity.components.Canvas;
-import com.beyondvelocity.utils.Strings;
-import com.beyondvelocity.utils.ValidationException;
+import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.ValidationException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,7 +25,7 @@ public class CanvasTests {
     void testCanvasIsEmpty() {
         canvas.create(Canvas.MIN_WIDTH, Canvas.MAX_HEIGHT);
 
-        var expected = Strings.repeat(' ', Canvas.MIN_WIDTH * Canvas.MAX_HEIGHT);
+        var expected = String.valueOf(' ').repeat(Canvas.MIN_WIDTH * Canvas.MAX_HEIGHT);
         assertEquals(expected, canvas.toString());
     }
 

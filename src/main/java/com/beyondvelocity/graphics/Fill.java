@@ -1,6 +1,6 @@
 package com.beyondvelocity.graphics;
 
-import com.beyondvelocity.components.Canvas;
+import com.beyondvelocity.core.Canvas;
 
 /*
  * Bucket fill graphics primitive.
