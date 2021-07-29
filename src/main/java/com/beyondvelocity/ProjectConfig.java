@@ -30,7 +30,6 @@ public class ProjectConfig {
     }
 
     @Bean(name="?")
-    @Lazy
     public HelpCommand helpCommand() {
         return new HelpCommand();
     }

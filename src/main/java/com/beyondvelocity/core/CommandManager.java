@@ -39,7 +39,6 @@ public class CommandManager {
         Command cmd;
 
         try {
-            //cmd = (Command)ContextProvider.getContext().getBean(input.cmd());
             cmd = (Command)context.getBean(input.cmd());
         } catch (Exception e){
             return unknownCommand(input);

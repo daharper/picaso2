@@ -8,11 +8,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Main {
     public static void main(String[] args) {
+        // bootstrap application
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
         var manager = context.getBean(CommandManager.class);
         var processor = context.getBean(InputProcessor.class);
         var command = manager.execute(context.getBean(HelpCommand.class));
 
+        // process user commands until they quit
         while (!(command instanceof QuitCommand)) {
             var input = processor.execute();
             command = manager.execute(input);
