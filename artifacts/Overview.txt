@@ -15,7 +15,8 @@ Enter ? at anytime to see a list of available commands.
 Architecture
 ============
 
-The application architecture is flexible, it uses Spring Context.
+The application architecture is flexible, it uses a Spring Context. It is easy to add
+new functionality, and simple to expand the command manager to support persistence.
 
 * Main   			executes commands until the user quits
 * ProjectConfig     configures the Spring Context
