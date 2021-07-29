@@ -46,7 +46,7 @@ Graphics primitives draw upon the Canvas.
 
 Commands
 --------
-Commands use the primitives to perform user actions (Input).
+Commands use the primitives to perform actions on the canvas.
 
 Tests
 -----
