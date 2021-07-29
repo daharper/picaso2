@@ -18,8 +18,8 @@ public class PlotCommand extends Command {
     public void execute(Input in, Canvas canvas) {
         var x = in.x1();
         var y = in.y1();
-        var c = in.pen(2);
+        var pen = in.pen(2);
 
-        Plot.draw(canvas, x, y, c);
+        Plot.draw(canvas, x, y, pen);
     }
 }

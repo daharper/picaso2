@@ -18,8 +18,8 @@ public class FillCommand extends Command {
     public void execute(Input in, Canvas canvas) {
         var x = in.x1();
         var y = in.y1();
-        var c = in.pen(2);
+        var pen = in.pen(2);
 
-        Fill.draw(canvas, x, y, c);
+        Fill.draw(canvas, x, y, pen);
     }
 }
