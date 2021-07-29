@@ -2,7 +2,6 @@ package com.beyondvelocity.commands;
 
 import com.beyondvelocity.core.Canvas;
 import com.beyondvelocity.core.Input;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,13 +9,11 @@ import java.util.stream.Collectors;
  * Provides help functionality.
  */
 public class HelpCommand extends Command {
-    private List<String> help;
+    private final List<String> help;
 
     public HelpCommand() {
         super("?", "displays a list of commands", false);
-    }
 
-    private void generateHelp() {
         var ctx = context();
 
         help = ctx.getBeansOfType(Command.class)
@@ -30,10 +27,6 @@ public class HelpCommand extends Command {
 
     @Override
     protected void run(Input in, Canvas canvas) {
-        if (help == null) {
-            generateHelp();
-        }
-
         var renderer = renderer();
 
         renderer.newLine();
