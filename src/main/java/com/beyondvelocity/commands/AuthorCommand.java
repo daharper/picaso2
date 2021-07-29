@@ -1,6 +1,7 @@
 package com.beyondvelocity.commands;
 
 import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.Command;
 import com.beyondvelocity.core.Input;
 import com.beyondvelocity.graphics.*;
 

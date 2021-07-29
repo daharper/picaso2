@@ -1,7 +1,7 @@
 package com.beyondvelocity;
 
 import com.beyondvelocity.core.Canvas;
-import com.beyondvelocity.core.ValidationException;
+import com.beyondvelocity.core.CanvasException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,14 +34,14 @@ public class CanvasTests {
         canvas.create(4, 4);
 
         // x
-        assertThrows(ValidationException.class, () -> canvas.setPixel(0, 3, '<'));
-        assertThrows(ValidationException.class, () -> canvas.setPixel(5, 3, '<'));
+        assertThrows(CanvasException.class, () -> canvas.setPixel(0, 3, '<'));
+        assertThrows(CanvasException.class, () -> canvas.setPixel(5, 3, '<'));
 
         // y
-        assertThrows(ValidationException.class, () -> canvas.setPixel(3, 0, '>'));
-        assertThrows(ValidationException.class, () -> canvas.setPixel(3, 5, '>'));
+        assertThrows(CanvasException.class, () -> canvas.setPixel(3, 0, '>'));
+        assertThrows(CanvasException.class, () -> canvas.setPixel(3, 5, '>'));
 
         // pen
-        assertThrows(ValidationException.class, () -> canvas.setPixel(2, 2, '☺'));
+        assertThrows(CanvasException.class, () -> canvas.setPixel(2, 2, '☺'));
     }
 }

@@ -1,13 +1,13 @@
 package com.beyondvelocity.core;
 
 /*
- * Encapsulates validation errors.
+ * Contains a canvas validation error.
  */
-public class ValidationException extends RuntimeException {
+public class CanvasException extends RuntimeException {
     /*
      * Initializes a new validation exception with the specified error.
      */
-    public ValidationException(String error) {
+    public CanvasException(String error) {
         super(error);
     }
 }

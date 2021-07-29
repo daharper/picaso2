@@ -1,7 +1,4 @@
-package com.beyondvelocity.commands;
-
-import com.beyondvelocity.core.Canvas;
-import com.beyondvelocity.core.Input;
+package com.beyondvelocity.core;
 
 /*
  * Command base, providing essential functionality and abstraction for all commands.

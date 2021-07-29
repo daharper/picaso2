@@ -1,13 +1,14 @@
 package com.beyondvelocity.commands;
 
 import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.Command;
 import com.beyondvelocity.core.Input;
 import com.beyondvelocity.graphics.Text;
 
 /*
  * Writes text onto the canvas.
  */
-public class WriteCommand extends Command{
+public class WriteCommand extends Command {
 
     public WriteCommand() {
         super("W x y hello world", "writes hello world at (X,Y)", 3, true);

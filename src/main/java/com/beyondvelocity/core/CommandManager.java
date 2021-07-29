@@ -1,6 +1,5 @@
 package com.beyondvelocity.core;
 
-import com.beyondvelocity.commands.Command;
 import com.beyondvelocity.commands.InvalidCommand;
 import com.beyondvelocity.commands.UnknownCommand;
 import org.springframework.beans.factory.annotation.Autowired;

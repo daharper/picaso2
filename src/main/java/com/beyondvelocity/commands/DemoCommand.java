@@ -1,6 +1,7 @@
 package com.beyondvelocity.commands;
 
 import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.Command;
 import com.beyondvelocity.core.Input;
 import com.beyondvelocity.graphics.Fill;
 import com.beyondvelocity.graphics.Line;
@@ -9,7 +10,7 @@ import com.beyondvelocity.graphics.Rectangle;
 /*
  * Demonstrates the application functionality as per requirements.
  */
-public class DemoCommand extends Command{
+public class DemoCommand extends Command {
 
     public DemoCommand() {
         super("D", "runs the requirement's demo", true);

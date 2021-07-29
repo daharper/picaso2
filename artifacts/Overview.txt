@@ -17,17 +17,20 @@ Architecture
 
 The application architecture is flexible, it uses Spring Context.
 
-Components
-----------
-Components are the building blocks of the application.
+* Main   			executes commands until the user quits
+* ProjectConfig     configures the Spring Context
 
-* Main: 			initializes the Context, bootstraps the Application
-* Application:  	gets input (InputProcessor) runs commands (CommandManager)
-* InputProcessor: 	converts user input into an Input object
-* CommandManager: 	identifies commands and executes them
-* Renderer: 		outputs to the console
-* Canvas:  			the drawing surface
-* ContextProvider   makes the context available to other classes
+Core
+----
+Core components of the application.
+
+* Input             represents the user input, contains utility accessor methods
+* InputProcessor 	converts user input into an Input object
+* Command           base abstraction for all commands
+* CommandManager  	identifies commands and executes them
+* Renderer  		outputs to the console
+* Canvas   			the drawing surface
+* CanvasException   contains an error identified by the Canvas
 
 Graphics
 --------
@@ -43,11 +46,6 @@ Graphics primitives draw upon the Canvas.
 Commands
 --------
 Commands use the primitives to perform user actions (Input).
-
-Each command is registered as a bean, its name matching the user command.
-
-* Command           base of all commands, abstract class
-* ...               a number of commands implementing specific behavior
 
 Tests
 -----

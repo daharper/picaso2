@@ -1,13 +1,14 @@
 package com.beyondvelocity.commands;
 
 import com.beyondvelocity.core.Canvas;
+import com.beyondvelocity.core.Command;
 import com.beyondvelocity.core.Input;
 import com.beyondvelocity.graphics.Triangle;
 
 /*
  * Draws a triangle on the canvas.
  */
-public class TriangleCommand extends Command{
+public class TriangleCommand extends Command {
 
     public TriangleCommand() {
         super("T x1 y1 x2 y2 x3 y3 c", "creates a triangle with optional color 'c'", 6, true);

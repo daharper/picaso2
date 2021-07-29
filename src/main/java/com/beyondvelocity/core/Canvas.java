@@ -38,11 +38,11 @@ public class Canvas {
      */
     public void create(int width, int height) {
         if (width < MIN_WIDTH || width > MAX_WIDTH) {
-            throw new ValidationException(String.format("width must be %d..%d", MIN_WIDTH, MAX_WIDTH));
+            throw new CanvasException(String.format("width must be %d..%d", MIN_WIDTH, MAX_WIDTH));
         }
 
         if (height < MIN_HEIGHT || height > MAX_HEIGHT) {
-            throw new ValidationException(String.format("height must be %d..%d", MIN_HEIGHT, MAX_HEIGHT));
+            throw new CanvasException(String.format("height must be %d..%d", MIN_HEIGHT, MAX_HEIGHT));
         }
 
         this.width = width;
@@ -103,7 +103,7 @@ public class Canvas {
     // verifies that the specified pen is valid
     public void validate(char pen) {
         if (VALID_PENS.indexOf(pen) < 0) {
-            throw new ValidationException("invalid pen, cannot write to canvas.");
+            throw new CanvasException("invalid pen, cannot write to canvas.");
         }
     }
 
@@ -112,11 +112,11 @@ public class Canvas {
      */
     public void validate(int x, int y) {
         if (x < 1 || x > width) {
-            throw new ValidationException("an x coordinate is not on the canvas");
+            throw new CanvasException("an x coordinate is not on the canvas");
         }
 
         if (y < 1 || y > height) {
-            throw new ValidationException("a y coordinate is not on the canvas");
+            throw new CanvasException("a y coordinate is not on the canvas");
         }
     }
 
