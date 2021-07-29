@@ -14,7 +14,7 @@ public class RectangleCommand extends Command {
     }
 
     @Override
-    protected void run(Input in, Canvas canvas) {
+    public void execute(Input in, Canvas canvas) {
         var x1 = in.x1();
         var y1 = in.y1();
         var x2 = in.x2();

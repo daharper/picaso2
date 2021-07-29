@@ -1,16 +1,21 @@
 package com.beyondvelocity;
 
-import com.beyondvelocity.core.Application;
-import com.beyondvelocity.core.ContextProvider;
+import com.beyondvelocity.commands.HelpCommand;
+import com.beyondvelocity.commands.QuitCommand;
+import com.beyondvelocity.core.CommandManager;
+import com.beyondvelocity.core.InputProcessor;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        // initialize the context
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
-        ContextProvider.setContext(context);
+        var manager = context.getBean(CommandManager.class);
+        var processor = context.getBean(InputProcessor.class);
+        var command = manager.execute(context.getBean(HelpCommand.class));
 
-        // execute the application
-        context.getBean(Application.class).execute();
+        while (!(command instanceof QuitCommand)) {
+            var input = processor.execute();
+            command = manager.execute(input);
+        }
     }
 }

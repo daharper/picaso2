@@ -16,7 +16,7 @@ public class DemoCommand extends Command{
     }
 
     @Override
-    protected void run(Input in, Canvas canvas) {
+    public void execute(Input in, Canvas canvas) {
         canvas.create(20, 4);
         Line.draw(canvas, 1, 2, 6, 2, Canvas.PEN);
         Line.draw(canvas, 6, 3, 6, 4, Canvas.PEN);

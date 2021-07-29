@@ -14,7 +14,7 @@ public class FillCommand extends Command{
     }
 
     @Override
-    protected void run(Input in, Canvas canvas) {
+    public void execute(Input in, Canvas canvas) {
         var x = in.x1();
         var y = in.y1();
         var c = in.pen(2);

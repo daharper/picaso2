@@ -2,8 +2,6 @@ package com.beyondvelocity.graphics;
 
 import com.beyondvelocity.core.Canvas;
 
-import static java.lang.System.out;
-
 /*
  * Line graphics primitive.
  */

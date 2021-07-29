@@ -14,7 +14,7 @@ public class WriteCommand extends Command{
     }
 
     @Override
-    protected void run(Input in, Canvas canvas) {
+    public void execute(Input in, Canvas canvas) {
         var x = in.intArg(0);
         var y = in.intArg(1);
 

@@ -14,7 +14,7 @@ public class AuthorCommand extends Command {
     }
 
     @Override
-    protected void run(Input in, Canvas canvas) {
+    public void execute(Input in, Canvas canvas) {
         canvas.create(40, 13);
         Text.draw(canvas, 1, 1, "David Harper");
         Text.draw(canvas, 1, 2, "Java Developer");

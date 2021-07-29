@@ -13,7 +13,7 @@ public class CanvasCommand extends Command {
     }
 
     @Override
-    protected void run(Input in, Canvas canvas) {
+    public void execute(Input in, Canvas canvas) {
         var width = in.intArg(0);
         var height = in.intArg(1);
 

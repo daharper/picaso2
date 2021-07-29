@@ -13,7 +13,7 @@ public class QuitCommand extends Command{
     }
 
     @Override
-    protected void run(Input in, Canvas canvas) {
+    public void execute(Input in, Canvas canvas) {
         System.out.println("Goodbye, hope you have a nice day :)");
     }
 }

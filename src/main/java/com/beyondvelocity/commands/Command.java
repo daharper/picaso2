@@ -1,10 +1,7 @@
 package com.beyondvelocity.commands;
 
 import com.beyondvelocity.core.Canvas;
-import com.beyondvelocity.core.ContextProvider;
 import com.beyondvelocity.core.Input;
-import com.beyondvelocity.core.Renderer;
-import org.springframework.context.ApplicationContext;
 
 /*
  * Command base, providing essential functionality and abstraction for all commands.
@@ -58,24 +55,6 @@ public abstract class Command {
         return dirty;
     }
 
-    /*
-     * Executes the command
-     */
-    public void execute(Input input) {
-        var canvas = context().getBean(Canvas.class);
-        run(input, canvas);
-    }
-
-    // abstract run method called by execute
-    protected abstract void run(Input in, Canvas canvas);
-
-    // gets the application context
-    protected ApplicationContext context() {
-        return ContextProvider.getContext();
-    }
-
-    // gets the renderer for displaying information
-    protected Renderer renderer() {
-        return context().getBean(Renderer.class);
-    }
+    // Executes the command.
+    public abstract void execute(Input in, Canvas canvas);
 }

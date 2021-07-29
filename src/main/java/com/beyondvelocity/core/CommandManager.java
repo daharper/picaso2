@@ -4,6 +4,7 @@ import com.beyondvelocity.commands.Command;
 import com.beyondvelocity.commands.InvalidCommand;
 import com.beyondvelocity.commands.UnknownCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /*
@@ -12,19 +13,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommandManager {
     private final Renderer renderer;
+    private final ApplicationContext context;
+    private final Canvas canvas;
 
     /*
      * Initializes a new instance of the CommandManager.
      */
-    public CommandManager(@Autowired Renderer renderer) {
+    public CommandManager(@Autowired ApplicationContext context, @Autowired Canvas canvas, @Autowired Renderer renderer) {
         this.renderer = renderer;
+        this.context = context;
+        this.canvas = canvas;
     }
 
     /*
      * Executes a simple command with no input, for example the HelpCommand.
      */
     public Command execute(Command command) {
-        command.execute(Input.empty);
+        command.execute(Input.empty, canvas);
         return command;
     }
 
@@ -35,7 +40,8 @@ public class CommandManager {
         Command cmd;
 
         try {
-            cmd = (Command)ContextProvider.getContext().getBean(input.cmd());
+            //cmd = (Command)ContextProvider.getContext().getBean(input.cmd());
+            cmd = (Command)context.getBean(input.cmd());
         } catch (Exception e){
             return unknownCommand(input);
         }
@@ -45,7 +51,7 @@ public class CommandManager {
         }
 
         try {
-            cmd.execute(input);
+            cmd.execute(input, canvas);
 
             if (cmd.dirty()) {
                 renderer.drawCanvas();
@@ -60,18 +66,18 @@ public class CommandManager {
     /*
      * executes and returns an invalid command.
      */
-    private static Command invalidCommand(Input input, String error) {
-        var cmd = new InvalidCommand(error);
-        cmd.execute(input);
+    private Command invalidCommand(Input input, String error) {
+        var cmd = new InvalidCommand(renderer, error);
+        cmd.execute(input, canvas);
         return cmd;
     }
 
     /*
      * executes and returns an unknown command.
      */
-    private static Command unknownCommand(Input input) {
-        var cmd = new UnknownCommand();
-        cmd.execute(input);
+    private Command unknownCommand(Input input) {
+        var cmd = new UnknownCommand(renderer);
+        cmd.execute(input, canvas);
         return cmd;
     }
 }
