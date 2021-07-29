@@ -15,7 +15,8 @@ public class Renderer {
     /*
      * Initializes a new instance of the renderer.
      */
-    public Renderer(@Autowired Canvas canvas) {
+    @Autowired
+    public Renderer(Canvas canvas) {
         this.canvas = canvas;
     }
 

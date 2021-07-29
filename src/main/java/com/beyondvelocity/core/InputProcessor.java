@@ -16,7 +16,8 @@ public class InputProcessor {
     /*
      * Initializes a new instance with the specified renderer.
      */
-    public InputProcessor(@Autowired Renderer renderer) {
+    @Autowired
+    public InputProcessor(Renderer renderer) {
         this.renderer = renderer;
     }
 

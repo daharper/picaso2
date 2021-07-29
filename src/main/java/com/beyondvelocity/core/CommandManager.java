@@ -18,7 +18,8 @@ public class CommandManager {
     /*
      * Initializes a new instance of the CommandManager.
      */
-    public CommandManager(@Autowired ApplicationContext context, @Autowired Canvas canvas, @Autowired Renderer renderer) {
+    @Autowired
+    public CommandManager(ApplicationContext context, Canvas canvas, Renderer renderer) {
         this.renderer = renderer;
         this.context = context;
         this.canvas = canvas;
