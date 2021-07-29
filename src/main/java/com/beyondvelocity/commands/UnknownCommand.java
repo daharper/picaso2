@@ -22,6 +22,6 @@ public class UnknownCommand extends Command {
         renderer.displayError(
             "I'm sorry, I don't understand your command." + System.lineSeparator() +
              "For more information please enter ?" + System.lineSeparator() +
-             "-> " + in.text());
+             "-> " + in.originalText());
     }
 }

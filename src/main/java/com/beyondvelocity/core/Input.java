@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Input {
     // the original text, before processing.
-    private final String text;
+    private final String originalText;
 
     // the identified command.
     private final String command;
@@ -20,7 +20,7 @@ public class Input {
      * Initializes a new instance with the specified original input text, command, and operands.
      */
     private Input(String text, String command, List<String> args) {
-        this.text = text;
+        this.originalText = text;
         this.command = command;
         this.args = args;
     }
@@ -28,8 +28,8 @@ public class Input {
     /*
      * Gets the original text input.
      */
-    public String text() {
-        return text;
+    public String originalText() {
+        return originalText;
     }
 
     /*
@@ -105,6 +105,23 @@ public class Input {
         return arg.charAt(0);
     }
 
+    /*
+     * Gets a string concatenation of all arguments from the specified index.
+     */
+    public String text(int index) {
+        var sb = new StringBuilder();
+
+        for(var i = 2; i < argCount(); ++i) {
+            sb.append(arg(i));
+            sb.append(' ');
+        }
+
+        if (sb.length() > 0) {
+            sb.setLength(sb.length() - 1);
+        }
+
+        return sb.toString();
+    }
     /*
      * Gets the number of arguments.
      */
