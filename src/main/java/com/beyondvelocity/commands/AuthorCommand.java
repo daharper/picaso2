@@ -19,7 +19,7 @@ public class AuthorCommand extends Command {
         canvas.create(40, 13);
         Text.draw(canvas, 1, 1, "David Harper");
         Text.draw(canvas, 1, 2, "Java Developer");
-        Text.draw(canvas, 1, 3, "9106 0579");
+        Text.draw(canvas, 1, 3, "X10X X57X");
         Line.draw(canvas, 1, 5, 16, 5, '.');
         Line.draw(canvas, 16, 1, 16, 5, ':');
         Fill.draw(canvas, 13, 1, '.');
