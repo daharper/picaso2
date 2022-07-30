@@ -1,8 +1,6 @@
 # picaso2
 
-Coding challenge for a job interview.
-
-A basic console drawing application in Java
+Preparing for a job interview in Java, so I redid a coding challenge for a previous interview to brush up.
 
 My first effort was in C# and looked like this:
 
